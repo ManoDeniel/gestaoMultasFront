@@ -12,12 +12,18 @@ import { MotoristaListComponent } from './views/home/motorista-list/motorista-li
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddMotoristaFormComponent } from './views/home/add-motorista-form/add-motorista-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MotoristaListComponent
+    MotoristaListComponent,
+    AddMotoristaFormComponent
   ],
   imports: [
     HttpClientModule,
@@ -28,7 +34,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     FlexLayoutModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

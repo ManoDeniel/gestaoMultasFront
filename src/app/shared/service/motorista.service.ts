@@ -23,4 +23,8 @@ export class MotoristaService {
   public findAllMotoristas(): Observable<Motorista[]> {
     return this.httpClient.get<Motorista[]>(this.apiUrl);
   }
+
+  public postMotorista(motorista: Motorista): Observable<Motorista> {
+    return this.httpClient.post<Motorista>(this.apiUrl, motorista, this.httpOptions);
+  }
 }
