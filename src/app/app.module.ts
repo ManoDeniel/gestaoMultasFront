@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxMaskModule } from 'ngx-mask';
 import { HomeComponent } from './views/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,19 +18,28 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddMotoristaFormComponent } from './views/home/add-motorista-form/add-motorista-form.component';
+import { DadosMotoristaComponent } from './views/home/dados-motorista/dados-motorista.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MultaListComponent } from './views/home/multa-list/multa-list.component';
+import { VeiculoListComponent } from './views/home/veiculo-list/veiculo-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     MotoristaListComponent,
-    AddMotoristaFormComponent
+    AddMotoristaFormComponent,
+    DadosMotoristaComponent,
+    MultaListComponent,
+    VeiculoListComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
     MatToolbarModule,
     MatButtonModule,
     FlexLayoutModule,
@@ -39,7 +49,9 @@ import { AddMotoristaFormComponent } from './views/home/add-motorista-form/add-m
     MatInputModule,
     MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

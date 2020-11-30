@@ -1,8 +1,7 @@
-import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Motorista } from '../model/motorista.model';
-import { Pageable } from '../model/pageable.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +21,10 @@ export class MotoristaService {
 
   public findAllMotoristas(): Observable<Motorista[]> {
     return this.httpClient.get<Motorista[]>(this.apiUrl);
+  }
+
+  public findMotoristaById(motoristaId: number): Observable<Motorista> {
+    return this.httpClient.get<Motorista>(this.apiUrl + '/' + motoristaId);
   }
 
   public postMotorista(motorista: Motorista): Observable<Motorista> {

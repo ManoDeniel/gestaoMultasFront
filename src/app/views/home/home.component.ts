@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit {
       maxWidth: '50%'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    dialogRef.afterClosed().subscribe(result => { });
   }
 }

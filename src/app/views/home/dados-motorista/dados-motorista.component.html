@@ -1,0 +1,90 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>Gerenciador de Multas</span>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="primary" (click)="onAddMotorista()">Novo Motorista</button>
+        <button mat-raised-button color="primary" [routerLink]="['/homePage']">Página Inicial</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group mat-align-tabs="center">
+    <mat-tab label="Dados Motorista">
+        <mat-card>
+            <h2 class="form">Motorista</h2>
+            <h2 class="form">Endereço</h2>
+            <form class="example-form" [formGroup]="motoristaForm">
+                <div class="form">
+                    <mat-form-field class="formFields">
+                        <mat-label>Nome: </mat-label>
+                        <input matInput formControlName="nome" name="nome">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Sobreome: </mat-label>
+                        <input matInput formControlName="sobrenome" name="sobrenome">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>CPF: </mat-label>
+                        <input mask="000.000.000-00" matInput formControlName="cpf" name="cpf">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Número CNH: </mat-label>
+                        <input matInput formControlName="numeroCNH" name="numeroCNH">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>DDD: </mat-label>
+                        <input mask="(00)" matInput formControlName="ddd" name="ddd">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Número: </mat-label>
+                        <input mask="00000-0000" matInput formControlName="numeroTelefone" name="numeroTelefone">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Tipo Telefone: </mat-label>
+                        <input matInput formControlName="tipoTelefone" name="tipoTelefone">
+                    </mat-form-field>
+                </div>
+                <div class="form">
+                    <mat-form-field class="formFields">
+                        <mat-label>Rua: </mat-label>
+                        <input matInput formControlName="rua" name="rua">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Nº: </mat-label>
+                        <input matInput formControlName="numeroEndereco" name="numeroEndereco">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Logradouro: </mat-label>
+                        <input matInput formControlName="logradouro" name="logradouro">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Bairro: </mat-label>
+                        <input matInput formControlName="bairro" name="bairro">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Cidade: </mat-label>
+                        <input matInput formControlName="cidade" name="cidade">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>Estado: </mat-label>
+                        <input matInput formControlName="estado" name="estado">
+                    </mat-form-field>
+                    <mat-form-field class="formFields">
+                        <mat-label>CEP: </mat-label>
+                        <input mask="00000-000" matInput formControlName="cep" name="cep">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-card-actions class="botoes">
+                        <button mat-button [routerLink]="['/dadosMotorista']">Ver Mais</button>
+                        <button mat-button>Excluir</button>
+                    </mat-card-actions>
+                </div>                
+            </form>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Multas">
+        <app-multa-list></app-multa-list>
+    </mat-tab>
+    <mat-tab label="Veículos">
+        <app-veiculo-list></app-veiculo-list>
+    </mat-tab>
+</mat-tab-group>

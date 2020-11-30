@@ -1,25 +1,25 @@
 <h2 mat-dialog-title>Cadastro Motorista</h2>
 <div mat-dialog-content>
-  <form class="example-form" [formGroup]="motoristaForm">
-    <mat-form-field class="formFields">
-      <mat-label>Nome: </mat-label>
-      <input matInput formControlName="nome" name="nome">
-    </mat-form-field>
-    <mat-form-field class="formFields">
-      <mat-label>Sobreome: </mat-label>
-      <input matInput formControlName="sobrenome" name="sobrenome">
-    </mat-form-field>
-    <mat-form-field class="formFields">
-      <mat-label>CPF: </mat-label>
-      <input matInput formControlName="cpf" name="cpf">
-    </mat-form-field>
-    <mat-form-field class="formFields">
-      <mat-label>Número CNH: </mat-label>
-      <input matInput formControlName="numeroCNH" name="numeroCNH">
-    </mat-form-field>
-  </form>
+    <form class="example-form" [formGroup]="motoristaForm">
+        <mat-form-field class="formFields">
+            <mat-label>Nome: </mat-label>
+            <input matInput formControlName="nome" name="nome">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Sobreome: </mat-label>
+            <input matInput formControlName="sobrenome" name="sobrenome">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>CPF: </mat-label>
+            <input mask="000.000.000-00" matInput formControlName="cpf" name="cpf">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Número CNH: </mat-label>
+            <input matInput formControlName="numeroCNH" name="numeroCNH">
+        </mat-form-field>
+    </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onAddMotorista()">Adicionar</button>
-  <button mat-button (click)="onClose()">Fechar</button>
+    <button mat-button (click)="onAddMotorista()">Adicionar</button>
+    <button mat-button (click)="onClose()">Fechar</button>
 </div>

@@ -1,0 +1,19 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.formFields {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 90%;
+}
+
+.form {
+    padding-left: 2%;
+    display: inline-block;
+    width: 45%;
+}
+
+.botoes {
+    margin-left: 80%;
+}

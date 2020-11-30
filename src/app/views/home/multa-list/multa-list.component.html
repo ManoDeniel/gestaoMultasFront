@@ -1,0 +1,25 @@
+<mat-list role="list">
+    <mat-list-item role="listitem">
+        <ng-container *ngFor="let multa of multas">
+            <mat-card fxFlex="0 1 calc(33.3% - 11px)"
+            fxFlex.lt-md="0 1 calc(50% - 11px)"
+            fxFlex.lt-sm="100%" class="multaCard">
+                <mat-card-title>
+                    <mat-card-title> Multa: {{ multa.numeroInfracao }} </mat-card-title>
+                    <mat-card-subtitle> {{ multa.tipoInfracao }} </mat-card-subtitle>
+                </mat-card-title>
+                <mat-card-content>
+                    <p><span> Orgão Autuador: {{ multa.orgaoAutuador }} </span></p>
+                    <p><span> Pontuação: {{ multa.pontuacao }} </span></p>
+                    <p><span> Valor: {{ multa.valor }} </span></p>
+                    <p><span> Data de emissão: {{ multa.dataEmissao }} </span></p>
+                    <p><span> Data de Vencimento: {{ multa.dataVencimento }} </span></p>
+                    <p><span> Descrição da Infração: {{ multa.descricaoInfracao }} </span></p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>Excluir</button>
+                </mat-card-actions>
+            </mat-card>
+        </ng-container>
+    </mat-list-item>
+</mat-list>
