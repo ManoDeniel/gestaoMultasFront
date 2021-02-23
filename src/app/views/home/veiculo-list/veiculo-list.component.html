@@ -1,22 +1,23 @@
-<mat-list role="list">
-    <mat-list-item role="listitem">
-        <ng-container *ngFor="let veiculo of veiculos">
-            <mat-card fxFlex="0 1 calc(33.3% - 11px)"
-            fxFlex.lt-md="0 1 calc(50% - 11px)"
-            fxFlex.lt-sm="100%" class="veiculoCard">
-                <mat-card-title>
-                    <mat-card-title> Veículo: {{ veiculo.modelo }} </mat-card-title>
-                    <mat-card-subtitle> {{ veiculo.marca }} </mat-card-subtitle>
-                </mat-card-title>
-                <mat-card-content>
-                    <p><span> Ano: {{ veiculo.ano }} </span></p>
-                    <p><span> Placa: {{ veiculo.placa }} </span></p>
-                    <p><span> Nº Renavam: {{ veiculo.numeroRenavam }} </span></p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button mat-button>Excluir</button>
-                </mat-card-actions>
-            </mat-card>
-        </ng-container>
-    </mat-list-item>
-</mat-list>
+<div class="botaoAdicionar">
+    <button mat-stroked-button (click)="onAddVeiculo()">Adicionar novo Veículo</button>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" class="exibeVeiculos">
+    <ng-container *ngFor="let veiculo of veiculos$ | async">
+        <mat-card fxFlex="0 1 calc(33.3% - 11px)"
+        fxFlex.lt-md="0 1 calc(50% - 11px)"
+        fxFlex.lt-sm="100%" class="veiculoCard">
+            <mat-card-title>
+                <mat-card-title> Veículo: {{ veiculo.marca }} {{ veiculo.modelo }} </mat-card-title>
+            </mat-card-title>
+            <mat-card-content>
+                <p><span> Ano de Fabricação: {{ veiculo.anoFabricacao }} </span></p>
+                <p><span> Cor: {{ veiculo.cor }} </span></p>
+                <p><span> Placa: {{ veiculo.placa }} </span></p>
+                <p><span> Nº Renavam: {{ veiculo.numeroRenavam }} </span></p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="onDeleteVeiculo(veiculo.veiculoId)">Excluir</button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-container>
+</div>

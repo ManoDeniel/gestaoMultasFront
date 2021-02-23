@@ -3,17 +3,14 @@
 }
 
 .formFields {
-    margin-left: 10%;
-    margin-right: 10%;
     width: 90%;
 }
 
 .form {
-    padding-left: 2%;
-    display: inline-block;
-    width: 45%;
+    margin-left: 20%;
+    width: 60%;
 }
 
 .botoes {
-    margin-left: 80%;
+    margin-left: 70%;
 }

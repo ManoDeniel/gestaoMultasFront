@@ -1,4 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Motorista } from 'src/app/shared/model/motorista.model';
 import { MotoristaService } from 'src/app/shared/service/motorista.service';
 
@@ -9,10 +11,11 @@ import { MotoristaService } from 'src/app/shared/service/motorista.service';
 })
 export class MotoristaListComponent implements OnInit {
 
-  motoristas: Motorista[] = [];
+  motoristas$: Observable<Motorista[]>;
 
   constructor(
     private motoristaService: MotoristaService,
+    private router: Router,
     private cdRef: ChangeDetectorRef
   ) { }
 
@@ -21,9 +24,11 @@ export class MotoristaListComponent implements OnInit {
   }
 
   findAllMotoristas() {
-    this.motoristaService.findAllMotoristas().subscribe(data => {
-      this.motoristas = data;
-    })
+    this.motoristas$ = this.motoristaService.findAllMotoristas();
     this.cdRef.detectChanges;
+  }
+
+  onSelectMotorista(motoristaId: number) {
+    this.router.navigate(['/dadosMotorista', motoristaId]);
   }
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { OperationDialogComponent } from 'src/app/shared/operation-dialog/operation-dialog.component';
 import { MotoristaService } from 'src/app/shared/service/motorista.service';
 
 @Component({
@@ -10,12 +11,13 @@ import { MotoristaService } from 'src/app/shared/service/motorista.service';
 })
 export class AddMotoristaFormComponent implements OnInit {
 
-  public motoristaForm: FormGroup;
-
+  public motoristaForm: FormGroup
+  
   constructor(
     public formBuilder: FormBuilder,
     public motoristaService: MotoristaService,
     public dialogRef: MatDialogRef<AddMotoristaFormComponent>,
+    private dialog: MatDialog,
     public cdRef: ChangeDetectorRef
   ) { }
 
@@ -34,10 +36,24 @@ export class AddMotoristaFormComponent implements OnInit {
 
   onAddMotorista() {
     if (this.motoristaForm.valid) {
-      this.motoristaService.postMotorista(this.motoristaForm.value).subscribe(result => {});
+      this.motoristaService.postMotorista(this.motoristaForm.value).pipe()
+      .subscribe(dados => {
+        this.onConfirmAdd(dados);
+      });
     }
     this.onClose();
-    window.location.reload();
+  }
+  
+  onConfirmAdd(result: String): void {
+    const dialogConfirm = this.dialog.open(OperationDialogComponent, {
+      data: {
+        operation: 'Cadastro',
+        message: result
+      }
+    });
+    dialogConfirm.afterClosed().subscribe(closed => { 
+      window.location.reload();
+    });
   }
 
   onClose(): void {

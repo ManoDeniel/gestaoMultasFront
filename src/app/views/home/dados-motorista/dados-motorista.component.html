@@ -9,10 +9,9 @@
 <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Dados Motorista">
         <mat-card>
-            <h2 class="form">Motorista</h2>
-            <h2 class="form">Endereço</h2>
             <form class="example-form" [formGroup]="motoristaForm">
                 <div class="form">
+                    <h2>Motorista</h2>
                     <mat-form-field class="formFields">
                         <mat-label>Nome: </mat-label>
                         <input matInput formControlName="nome" name="nome">
@@ -30,12 +29,8 @@
                         <input matInput formControlName="numeroCNH" name="numeroCNH">
                     </mat-form-field>
                     <mat-form-field class="formFields">
-                        <mat-label>DDD: </mat-label>
-                        <input mask="(00)" matInput formControlName="ddd" name="ddd">
-                    </mat-form-field>
-                    <mat-form-field class="formFields">
-                        <mat-label>Número: </mat-label>
-                        <input mask="00000-0000" matInput formControlName="numeroTelefone" name="numeroTelefone">
+                        <mat-label>Número Telefone: </mat-label>
+                        <input mask="(00) 00000-0000" matInput formControlName="numeroTelefone" name="numeroTelefone">
                     </mat-form-field>
                     <mat-form-field class="formFields">
                         <mat-label>Tipo Telefone: </mat-label>
@@ -43,6 +38,7 @@
                     </mat-form-field>
                 </div>
                 <div class="form">
+                    <h2>Endereço</h2>
                     <mat-form-field class="formFields">
                         <mat-label>Rua: </mat-label>
                         <input matInput formControlName="rua" name="rua">
@@ -74,17 +70,17 @@
                 </div>
                 <div>
                     <mat-card-actions class="botoes">
-                        <button mat-button [routerLink]="['/dadosMotorista']">Ver Mais</button>
-                        <button mat-button>Excluir</button>
+                        <button mat-button (click)="onAtualizarMotorista(this.motoristaId)">Atualizar</button>
+                        <button mat-button (click)="onDeleteMotorista(this.motoristaId)">Excluir</button>
                     </mat-card-actions>
                 </div>                
             </form>
         </mat-card>
     </mat-tab>
     <mat-tab label="Multas">
-        <app-multa-list></app-multa-list>
+        <app-multa-list [motoristaId]="motoristaId" [motoristaMulta]="motorista"></app-multa-list>
     </mat-tab>
     <mat-tab label="Veículos">
-        <app-veiculo-list></app-veiculo-list>
+        <app-veiculo-list [motoristaId]="motoristaId" [motoristaVeiculo]="motorista"></app-veiculo-list>
     </mat-tab>
 </mat-tab-group>

@@ -17,11 +17,11 @@ export class HomeComponent implements OnInit {
   }
 
   onAddMotorista(): void {
-    const dialogRef = this.dialog.open(AddMotoristaFormComponent, {
+    const dialogAdd = this.dialog.open(AddMotoristaFormComponent, {
       minWidth: '40%',
       maxWidth: '50%'
     });
 
-    dialogRef.afterClosed().subscribe(result => { });
+    dialogAdd.afterClosed().subscribe(result => { });
   }
 }

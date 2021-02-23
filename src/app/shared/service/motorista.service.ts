@@ -14,7 +14,7 @@ export class MotoristaService {
       'Content-Type': 'application/json'
     })
   };
-
+ 
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -27,7 +27,15 @@ export class MotoristaService {
     return this.httpClient.get<Motorista>(this.apiUrl + '/' + motoristaId);
   }
 
-  public postMotorista(motorista: Motorista): Observable<Motorista> {
-    return this.httpClient.post<Motorista>(this.apiUrl, motorista, this.httpOptions);
+  public postMotorista(motorista: Motorista) {
+    return this.httpClient.post(this.apiUrl, motorista, { responseType: 'text' });
+  }
+
+  public deleteMotorista(motoristaId: number) {
+    return this.httpClient.delete(this.apiUrl + '/' + motoristaId, { responseType: 'text' });
+  }
+
+  public updateMotorista(motorista: Motorista, motoristaId: number) {
+    return this.httpClient.put(this.apiUrl + '/' + motoristaId, motorista, { responseType: 'text' });
   }
 }

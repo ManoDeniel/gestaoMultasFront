@@ -1,3 +1,5 @@
+import { Veiculo } from './veiculo.model';
+
 export class Multa {
     multaId: number;
     numeroInfracao: string;
@@ -8,4 +10,6 @@ export class Multa {
     pontuacao: number;
     dataEmissao: string;
     dataVencimento: string;
+    motoristaId: number;
+    veiculoId: number;
 }

@@ -1,5 +1,5 @@
 <div fxLayout="row wrap" fxLayoutAlign="space-around center" class="exibeMotoristas">
-    <ng-container *ngFor="let motorista of motoristas">
+    <ng-container *ngFor="let motorista of motoristas$ | async">
         <mat-card fxFlex="0 1 calc(33.3% - 11px)"
         fxFlex.lt-md="0 1 calc(50% - 11px)"
         fxFlex.lt-sm="100%" class="motoristaCard">
@@ -8,29 +8,12 @@
                 <mat-card-subtitle>CNH: {{ motorista.numeroCNH }} </mat-card-subtitle>
             </mat-card-title>
             <mat-card-content>
-                <p><span>Número de Veículos: </span></p>
-                <p><span>Número de Multas: </span></p>
+                <p><span *ngIf="motorista.veiculos">Número de Veículos: {{ motorista.veiculos.length }} </span></p>
+                <p><span *ngIf="motorista.multas">Número de Multas: {{ motorista.multas.length }} </span></p>
             </mat-card-content>
             <mat-card-actions>
-                <button mat-button [routerLink]="['/dadosMotorista/motorista.motoristaId']">Ver Mais</button>
-                <button mat-button>Excluir</button>
+                <button mat-button (click)="onSelectMotorista(motorista.motoristaId)">Ver Mais</button>
             </mat-card-actions>
         </mat-card>
     </ng-container>
-    <mat-card fxFlex="0 1 calc(33.3% - 11px)"
-        fxFlex.lt-md="0 1 calc(50% - 11px)"
-        fxFlex.lt-sm="100%" class="motoristaCard">
-        <mat-card-title>
-            <mat-card-title></mat-card-title>
-            <mat-card-subtitle></mat-card-subtitle>
-        </mat-card-title>
-        <mat-card-content>
-            <p><span>Número de Veículos: </span></p>
-            <p><span>Número de Multas: </span></p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button mat-button [routerLink]="['/dadosMotorista']">Ver Mais</button>
-            <button mat-button>Excluir</button>
-        </mat-card-actions>
-    </mat-card>
 </div>

@@ -23,6 +23,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MultaListComponent } from './views/home/multa-list/multa-list.component';
 import { VeiculoListComponent } from './views/home/veiculo-list/veiculo-list.component';
+import { AddVeiculoFormComponent } from './views/home/add-veiculo-form/add-veiculo-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { AddMultaFormComponent } from './views/home/add-multa-form/add-multa-form.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { VeiculoListComponent } from './views/home/veiculo-list/veiculo-list.com
     AddMotoristaFormComponent,
     DadosMotoristaComponent,
     MultaListComponent,
-    VeiculoListComponent
+    VeiculoListComponent,
+    AddVeiculoFormComponent,
+    AddMultaFormComponent
   ],
   imports: [
     HttpClientModule,
@@ -51,7 +57,9 @@ import { VeiculoListComponent } from './views/home/veiculo-list/veiculo-list.com
     FormsModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

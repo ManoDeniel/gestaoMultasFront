@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Cadastro Multa</h2>
+<div mat-dialog-content>
+    <form class="example-form" [formGroup]="multaForm">
+        <mat-form-field class="formFields">
+            <mat-label>Número da Infração: </mat-label>
+            <input matInput formControlName="numeroInfracao" name="numeroInfracao" maxlength="4">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Tipo Infração: </mat-label>
+            <input matInput formControlName="tipoInfracao" name="tipoInfracao">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Orgão Autuador: </mat-label>
+            <input matInput formControlName="orgaoAutuador" name="orgaoAutuador" maxlength="50">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Valor: </mat-label>
+            <input matInput formControlName="valor" name="valor">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Pontuação: </mat-label>
+            <input matInput formControlName="pontuacao" name="pontuacao" maxlength="3">
+        </mat-form-field>
+        <mat-form-field class="formFields" appearance="fill">
+            <mat-label>Data de Emissão</mat-label>
+            <input [disabled]="true" matInput formControlName="dataEmissao" [matDatepicker]="dataEmissao">
+            <mat-datepicker-toggle matSuffix [for]="dataEmissao"></mat-datepicker-toggle>
+            <mat-datepicker #dataEmissao disabled="false"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="formFields" appearance="fill">
+            <mat-label>Data de Vencimento</mat-label>
+            <input [disabled]="true" matInput formControlName="dataVencimento" [matDatepicker]="dataVencimento">
+            <mat-datepicker-toggle matSuffix [for]="dataVencimento"></mat-datepicker-toggle>
+            <mat-datepicker #dataVencimento disabled="false"></mat-datepicker>
+        </mat-form-field>
+        <h4>Escolha o veículo desta multa</h4>
+        <mat-form-field class="full-width" appearance="fill">
+            <mat-label>Veículo</mat-label>
+            <mat-select [(value)]="veiculoSelected">
+                <mat-option *ngFor="let veiculo of veiculos$ | async" value={{veiculo.veiculoId}}>
+                    {{ veiculo.marca }} {{ veiculo.modelo }} - {{ veiculo.placa }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Descrição da Infração</mat-label>
+            <input matInput formControlName="descricaoInfracao" #message maxlength="200">
+            <mat-hint align="start"><strong>Detalhes da Multa</strong> </mat-hint>
+            <mat-hint align="end">{{ message.value.length }} / 200</mat-hint>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onAddMulta()">Adicionar</button>
+    <button mat-button (click)="onClose()">Fechar</button>
+</div>
+

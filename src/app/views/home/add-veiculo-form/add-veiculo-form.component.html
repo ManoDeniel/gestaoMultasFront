@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Cadastro Veiculo</h2>
+<div mat-dialog-content>
+    <form class="example-form" [formGroup]="veiculoForm">
+        <mat-form-field class="formFields">
+            <mat-label>Marca: </mat-label>
+            <input matInput formControlName="marca" name="marca">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Modelo: </mat-label>
+            <input matInput formControlName="modelo" name="modelo">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Ano de Fabricação: </mat-label>
+            <input matInput formControlName="anoFabricacao" name="anoFabricacao">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Cor: </mat-label>
+            <input matInput formControlName="cor" name="cor">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>Placa: </mat-label>
+            <input matInput formControlName="placa" name="placa">
+        </mat-form-field>
+        <mat-form-field class="formFields">
+            <mat-label>NumeroRenavam: </mat-label>
+            <input matInput formControlName="numeroRenavam" name="numeroRenavam">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onAddVeiculo()">Adicionar</button>
+    <button mat-button (click)="onClose()">Fechar</button>
+</div>
+

@@ -1,7 +1,10 @@
 export class Veiculo {
     veiculoId: number;
     marca: string;
-    ano: string;
+    modelo: string;
+    anoFabricacao: string;
+    cor: string;
     placa: string;
     numeroRenavam: string;
+    motoristaId?: number;
 }
